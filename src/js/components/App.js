@@ -1,14 +1,15 @@
 import React, {Component} from 'react';
+import ListView from "./ListView";
+import Navigator from "./Navigator";
 
 class App extends Component {
 
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return (
-            <div>Hello world!</div>
+            <div>
+                <Navigator/>
+                <ListView/>
+            </div>
         );
     }
 }
