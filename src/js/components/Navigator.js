@@ -1,20 +1,29 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 
 class Navigator extends Component {
 
-    constructor(props) {
-        super(props);
-    }
-
     render() {
+        const {currentDate} = this.props;
+
         return (
             <div>
                 <button>Left</button>
-                <div>여긴 날짜영역</div>
+                <div>{currentDate}</div>
                 <button>Right</button>
             </div>
         );
     }
 }
 
-export default Navigator
+const mapStateToProps = (state, props) => {
+    return {
+        currentDate: state.date.currentDate
+    }
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {}
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navigator);
