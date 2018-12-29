@@ -1,2 +1,6 @@
-export const PREV_DATE = 'PREV_DATE';
-export const NEXT_DATE = 'NEXT_DATE';
+export const SET_PREV_DATE = 'SET_PREV_DATE';
+export const SET_NEXT_DATE = 'SET_NEXT_DATE';
+
+export const FETCH_LIST = 'FETCH_LIST';
+export const FETCH_LIST_FULFILLED = 'FETCH_LIST_FULFILLED';
+export const FETCH_LIST_REJECTED = 'FETCH_LIST_REJECTED';
