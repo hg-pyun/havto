@@ -1,16 +1,27 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import dayjs from 'dayjs';
+import {setDate} from "../store/actions/handleDate";
 
 class Navigator extends Component {
+
+
+    handleClickPrevButton = () => {
+        this.props.setDate(-1);
+    };
+
+    handleClickNextButton = () => {
+        this.props.setDate(1);
+    };
 
     render() {
         const {currentDate} = this.props;
 
         return (
             <div>
-                <button>Left</button>
-                <div>{currentDate}</div>
-                <button>Right</button>
+                <button onClick={this.handleClickPrevButton}>Prev</button>
+                <div>{dayjs(currentDate).format('YYYY-MM-DD')}</div>
+                <button onClick={this.handleClickNextButton}>Next</button>
             </div>
         );
     }
@@ -22,8 +33,4 @@ const mapStateToProps = (state, props) => {
     }
 };
 
-const mapDispatchToProps = (dispatch) => {
-    return {}
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Navigator);
+export default connect(mapStateToProps, {setDate})(Navigator);

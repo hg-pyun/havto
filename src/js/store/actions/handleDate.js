@@ -1,9 +1,8 @@
-import {SET_NEXT_DATE, SET_PREV_DATE} from "./actionTypes";
+import {SET_DATE} from "./actionTypes";
 
-export const setPrevDate = () => ({
-    type: SET_PREV_DATE
-});
-
-export const setNextDate = () => ({
-    type: SET_NEXT_DATE
-});
+export function setDate(payload) {
+    return {
+        type: SET_DATE,
+        payload
+    }
+}

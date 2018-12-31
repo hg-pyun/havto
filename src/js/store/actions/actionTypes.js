@@ -1,5 +1,4 @@
-export const SET_PREV_DATE = 'SET_PREV_DATE';
-export const SET_NEXT_DATE = 'SET_NEXT_DATE';
+export const SET_DATE = 'SET_DATE';
 
 export const FETCH_LIST = 'FETCH_LIST';
 export const FETCH_LIST_FULFILLED = 'FETCH_LIST_FULFILLED';
