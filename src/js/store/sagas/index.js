@@ -1,23 +1,17 @@
-import {put, takeEvery} from 'redux-saga/effects';
+import {put, takeLatest} from 'redux-saga/effects';
 import {SET_DATE} from "../actions/actionTypes";
-import {delay} from "redux-saga";
+import axios from 'axios';
 import * as handleFetch from '../actions/handleFetch';
 
 function* fetchListData() {
-    yield delay(1000);
+    const {data} = yield axios.get('https://raw.githubusercontent.com/hg-pyun/havto/master/docs/2019-01-01.md');
+    console.log(data);
 
-    const data = [];
+    const dataList = data.split('\n');
 
-    for(let i=0; i<5; i++) {
-        data.push({
-            contents: `TEXT TEXT TEXT TEXT TEXT ${i} ${+ new Date()}`,
-            checked: false
-        })
-    }
-
-    yield put(handleFetch.fetchListFulfilled(data));
+    yield put(handleFetch.fetchListFulfilled(dataList));
 }
 
 export default function* rootSaga() {
-    yield takeEvery(SET_DATE, fetchListData);
+    yield takeLatest(SET_DATE, fetchListData);
 }

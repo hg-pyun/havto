@@ -12,7 +12,7 @@ class ListView extends Component {
             console.log(data);
             return (
                 <ul>
-                    {data.map((item, index) => <li key={index}>{item.contents}</li>)}
+                    {data.map((item, index) => <li key={index}>{item}</li>)}
                 </ul>
             )
         };
