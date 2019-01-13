@@ -1,15 +1,15 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {fetchList} from '../store/actions/handleFetch';
 
 class ListView extends Component {
 
     componentDidMount() {
-
+        this.props.fetchList();
     }
 
     render() {
         const renderList = (data) => {
-            console.log(data);
             return (
                 <ul>
                     {data.map((item, index) => <li key={index}>{item}</li>)}
@@ -31,4 +31,4 @@ const mapStateToProps = (state, props) => {
     }
 };
 
-export default connect(mapStateToProps)(ListView);
+export default connect(mapStateToProps, {fetchList})(ListView);
